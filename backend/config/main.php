@@ -48,8 +48,8 @@ return [
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=message_board',
-            'username' => 'root',
-            'password' => 'yogazlt',
+            'username' => 'yoga',
+            'password' => 'Yogazlt1@',
             'charset' => 'utf8mb4',
         ],
         /*
