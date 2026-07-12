@@ -49,7 +49,7 @@ return [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=message_board',
             'username' => 'root',
-            'password' => 'root',
+            'password' => 'yogazlt',
             'charset' => 'utf8mb4',
         ],
         /*
