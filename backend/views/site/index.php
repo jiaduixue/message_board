@@ -74,47 +74,7 @@ $this->title = 'My Yii Application';
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html" tppabs="http://www.zi-han.net/theme/hplus/form_basic.html">基本表单</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_validate.html" tppabs="http://www.zi-han.net/theme/hplus/form_validate.html">表单验证</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_advanced.html" tppabs="http://www.zi-han.net/theme/hplus/form_advanced.html">高级插件</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_wizard.html" tppabs="http://www.zi-han.net/theme/hplus/form_wizard.html">表单向导</a>
-                            </li>
-                            <li>
-                                <a href="#">文件上传 <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li><a class="J_menuItem" href="form_webuploader.html" tppabs="http://www.zi-han.net/theme/hplus/form_webuploader.html">百度WebUploader</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="form_file_upload.html" tppabs="http://www.zi-han.net/theme/hplus/form_file_upload.html">DropzoneJS</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="form_avatar.html" tppabs="http://www.zi-han.net/theme/hplus/form_avatar.html">头像裁剪上传</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">编辑器 <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li><a class="J_menuItem" href="form_editors.html" tppabs="http://www.zi-han.net/theme/hplus/form_editors.html">富文本编辑器</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="form_simditor.html" tppabs="http://www.zi-han.net/theme/hplus/form_simditor.html">simditor</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="form_markdown.html" tppabs="http://www.zi-han.net/theme/hplus/form_markdown.html">MarkDown编辑器</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="code_editor.html" tppabs="http://www.zi-han.net/theme/hplus/code_editor.html">代码编辑器</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="J_menuItem" href="suggest.html" tppabs="http://www.zi-han.net/theme/hplus/suggest.html">搜索自动补全</a>
-                            </li>
-                            <li><a class="J_menuItem" href="layerdate.html" tppabs="http://www.zi-han.net/theme/hplus/layerdate.html">日期选择器layerDate</a>
-                            </li>
-                        </ul>
-                    </li>
+                    
                     <li>
                         <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -158,23 +118,31 @@ $this->title = 'My Yii Application';
                     </li>
                     
                     <li>
-                        <a href="#"><i class="fa fa-table"></i> <span class="nav-label">系统信息</span><span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-table"></i> <span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="table_basic.html" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html">基本表格</a>
+                            <li><a class="J_menuItem" href="<?= Url::to(['customer/info', 'id' => $id], true) ?>" tppabs="<?= Url::to(['customer/info', 'id' => $id], true) ?>">信息管理</a>
                             </li>
-                            <li><a class="J_menuItem" href="table_data_tables.html" tppabs="http://www.zi-han.net/theme/hplus/table_data_tables.html">DataTables</a>
+                          
+                            <li><a class="J_menuItem" href="<?= Url::to(['customer/index', 'id' => $id], true) ?>" tppabs="<?= Url::to(['customer/index', 'id' => $id], true) ?>">用户信息</a>
                             </li>
-                            <li><a class="J_menuItem" href="table_jqgrid.html" tppabs="http://www.zi-han.net/theme/hplus/table_jqgrid.html">jqGrid</a>
-                            </li>
-                            <li><a class="J_menuItem" href="table_foo_table.html" tppabs="http://www.zi-han.net/theme/hplus/table_foo_table.html">Foo Tables</a>
-                            </li>
-                            <li><a class="J_menuItem" href="table_bootstrap.html" tppabs="http://www.zi-han.net/theme/hplus/table_bootstrap.html">Bootstrap Table
+                            <li><a class="J_menuItem" href="<?= Url::to(['customer/member', 'id' => $id], true) ?>" tppabs="<?= Url::to(['customer/member', 'id' => $id], true) ?>">会员管理
                                 <span class="label label-danger pull-right">推荐</span></a>
                             </li>
                         </ul>
                     </li>
                 
-    
+                    <li>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">系统信息</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a class="J_menuItem" href="form_basic.html" tppabs="http://www.zi-han.net/theme/hplus/form_basic.html">系统日志</a>
+                            </li>
+                            <li><a class="J_menuItem" href="form_validate.html" tppabs="http://www.zi-han.net/theme/hplus/form_validate.html">系统</a>
+                            </li>
+                            <li><a class="J_menuItem" href="form_advanced.html" tppabs="http://www.zi-han.net/theme/hplus/form_advanced.html">系统</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
 
                 </ul>
             </div>
