@@ -4,7 +4,6 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
-use common\helper\ConsoleHelper;
 use common\models\User;
 /**
  * Login form
@@ -44,7 +43,6 @@ class LoginForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-            ConsoleHelper::log($user, '用户模型数据');
             if (!$user || !$user->validatePassword1($this->password)) {
                 $this->addError($attribute, '请输入正确的用户名或者密码.');
             }

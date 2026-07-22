@@ -9,7 +9,6 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use yii\behaviors\AttributeBehavior;
 use yii\db\Expression;
-use common\helper\ConsoleHelper;
 
 /**
  * User model
@@ -175,7 +174,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function validatePassword1($password)
     {
-        ConsoleHelper::log($this->password.'32', '用户模型数据');
+       
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 

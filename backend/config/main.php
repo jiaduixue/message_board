@@ -47,7 +47,7 @@ return [
         ],
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=message_board',
+            'dsn' => 'mysql:host=127.0.0.1;dbname=message_board',
             'username' => 'yoga',
             'password' => 'Yogazlt1@',
             'charset' => 'utf8mb4',
@@ -55,11 +55,19 @@ return [
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => false,
             'showScriptName' => false,
             'rules' => [
+                // 在这里添加你的路由规则
+                // 例如：'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
         ],
         */
+        'assetManager' => [
+            'appendTimestamp' => true, // 自动附加文件修改时间戳作为版本号
+            // 或者完全禁用版本号
+            // 'appendTimestamp' => false,
+        ],
     ],
     'params' => $params,
 ];

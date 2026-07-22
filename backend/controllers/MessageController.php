@@ -2,20 +2,36 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Message;
+use backend\models\Message;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 class MessageController extends Controller
 {
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error', 'register'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['index','detail','add'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'], // 删除操作只允许 POST 请求，防止误删
+                    'logout' => ['post'],
                 ],
             ],
         ];
@@ -24,13 +40,25 @@ class MessageController extends Controller
     // 1. 留言列表展示
     public function actionIndex()
     {
-        $searchModel = new \common\models\MessageSearch(); // 搜索模型（Gii可自动生成）
+        $searchModel = new \backend\models\Message(); // 搜索模型（Gii可自动生成）
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $this->layout = 'message';
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+    // 1. 留言列表展示
+    public function actionDetail()
+    {
+        $this->layout = 'message';
+        return $this->render('detail');
+    }
+    // 1. 留言列表展示
+    public function actionAdd()
+    {
+        $this->layout = 'messageAdd';
+        return $this->render('add');
     }
 
     // 2. 管理员回复功能

@@ -1,9 +1,10 @@
 <?php
-namespace common\models;
+namespace backend\models;
 
 use Yii;
 use yii\db\ActiveRecord;
 
+use yii\data\ActiveDataProvider;
 class Message extends ActiveRecord
 {
     public static function tableName()
@@ -37,6 +38,23 @@ class Message extends ActiveRecord
             'ip_address' => 'IP地址',
             'created_at' => '创建时间',
         ];
+    }
+    public function search($params)
+    {
+        $query = Message::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        if (!($this->load($params) && $this->validate())) {
+            return $dataProvider;
+        }
+        // 添加搜索条件
+        $query->andFilterWhere(['id' => $this->id]);
+        $query->andFilterWhere(['like', 'title', $this->title]);
+        // ...其他字段
+
+        return $dataProvider;
     }
 }
 
