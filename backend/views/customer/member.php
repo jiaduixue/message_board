@@ -1,7 +1,7 @@
 <?php
 
 /** @var yii\web\View $this */
-
+use yii\helpers\Url;
 $this->title = '留言系统';
 ?>
 
@@ -21,7 +21,10 @@ $this->title = '留言系统';
                         <div class="example-wrap">
                             <h4 class="example-title">工具条</h4>
                             <div class="example">
-                                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                                <div class="alert alert-success" id="examplebtTableEventsResult" role="alert">
+                                    事件结果
+                                </div>
+                                <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
                                     <button type="button" class="btn btn-outline btn-default">
                                         <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
                                     </button>
@@ -32,7 +35,20 @@ $this->title = '留言系统';
                                         <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
                                     </button>
                                 </div>
-                                <table id="exampleTableToolbar" data-mobile-responsive="true">
+                                <table 
+                                    id="customerMember" 
+                                    data-toggle="customerMember" 
+                                    data-url="<?= Url::to(['customer/get-list', 'id' => $id], true) ?>" 
+                                    data-query-params="queryParams" 
+                                    data-mobile-responsive="true" 
+                                    data-height="600" 
+                                    data-pagination="true" 
+                                    data-page-size="10"
+                                    data-page-list="[10, 20]"
+                                    
+                                    data-sort-name="id"
+                                    data-sort-order="asc"
+                                    >
                                     <thead>
                                         <tr>
                                             <th data-field="name">名称</th>
@@ -43,152 +59,7 @@ $this->title = '留言系统';
                                             <th data-field="price">价格</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" checked class="i-checks" name="input[]">
-                                        </td>
-                                        <td>米莫说｜MiMO Show</td>
-                                        <td><span class="pie">0.52/1.561</span>
-                                        </td>
-                                        <td>20%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>商家与购物用户的交互试衣应用</td>
-                                        <td><span class="pie">6,9</span>
-                                        </td>
-                                        <td>40%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>天狼---智能硬件项目</td>
-                                        <td><span class="pie">3,1</span>
-                                        </td>
-                                        <td>75%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                    
                                 </table>
 
                             </div>
@@ -196,173 +67,7 @@ $this->title = '留言系统';
                         <!-- End Example Toolbar -->
                     </div>
 
-                    <div class="col-sm-12">
-                        <!-- Example Pagination -->
-                        <div class="example-wrap">
-                            <h4 class="example-title">分页：客户端</h4>
-                            <div class="example">
-                                <table id="exampleTablePagination" data-toggle="table" data-url="js/demo/bootstrap_table_test.json" data-query-params="queryParams" data-mobile-responsive="true" data-height="400" data-pagination="true" data-icon-size="outline" data-search="true">
-                                    <thead>
-                                        <tr>
-                                            <th data-field="state" data-checkbox="true"></th>
-                                            <th data-field="id">ID</th>
-                                            <th data-field="name">名称</th>
-                                            <th data-field="price">价格</th>
-                                            <th data-field="price">价格</th>
-                                            <th data-field="price">价格</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" checked class="i-checks" name="input[]">
-                                        </td>
-                                        <td>米莫说｜MiMO Show</td>
-                                        <td><span class="pie">0.52/1.561</span>
-                                        </td>
-                                        <td>20%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>商家与购物用户的交互试衣应用</td>
-                                        <td><span class="pie">6,9</span>
-                                        </td>
-                                        <td>40%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>天狼---智能硬件项目</td>
-                                        <td><span class="pie">3,1</span>
-                                        </td>
-                                        <td>75%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
-                                        </td>
-                                        <td>线下超市+线上商城+物流配送互联系统</td>
-                                        <td><span class="pie">4,9</span>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>2014.11.11</td>
-                                        <td><a href="table_basic.html#" tppabs="http://www.zi-han.net/theme/hplus/table_basic.html#"><i class="fa fa-check text-navy"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- End Example Pagination -->
-                    </div>
+                
 
                     
                 </div>

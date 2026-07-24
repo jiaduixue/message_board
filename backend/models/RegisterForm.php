@@ -48,6 +48,7 @@ class RegisterForm extends Model
         // 2. 创建 User 模型实例并赋值
         $user = new User();
         $user->username = $this->username;
+        $user->password = $this->password;
         $user->status = $user::STATUS_ACTIVE;
         // 3. 核心步骤：使用安全组件对密码进行单向哈希加密
         $user->setPassword($this->password);

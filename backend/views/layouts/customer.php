@@ -5,6 +5,8 @@
 
 use backend\assets\CustomerAsset;
 use yii\helpers\Html;
+use yii\helpers\Url;
+
 
 CustomerAsset::register($this);
 ?>
@@ -23,6 +25,43 @@ CustomerAsset::register($this);
   <?= $content ?>
 
 <?php $this->endBody() ?>
+
+<script>
+        $('#customerMember').bootstrapTable({
+          dataType:"json",    //服务器返回的数据类型
+          method: 'get',
+          contentType: "application/x-www-form-urlencoded", // 必须设置，否则 Yii 接收不到参数
+          sidePagination: "server",       // 开启服务端分页
+          
+          // 【核心】修改发送给后端的参数名，以匹配你的 PHP 逻辑
+          queryParams: function(params) { 
+            return {
+            // params.offset: 当前页起始行号 (例如第2页就是10)
+            // params.limit: 每页显示条数 (例如10)
+            
+            // 方案 A：如果你的 PHP 里是用 offset 计算
+            offset: params.offset, 
+            limit: params.limit,
+             // 方案 B：如果你的 PHP 里习惯用 page (页码)
+            // page: Math.floor(params.offset / params.limit) + 1,
+            // pageSize: params.limit, 
+            
+            search: params.search   // 搜索关键词
+                };
+            },
+            // 定义哪一列对应哪个字段
+              columns: [{
+                  field: 'id',
+                  title: 'ID'
+              }, {
+                  field: 'name',
+                  title: '产品名称'
+              }, {
+                  field: 'price',
+                  title: '价格'
+              }]
+          });
+    </script>
 </body>
 </html>
 <?php $this->endPage();

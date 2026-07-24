@@ -17,6 +17,10 @@ return [
             'class' => 'app\components\Request', // 自定义类路径
             'csrfParam' => '_csrf-backend',
             'cookieValidationKey' => 'd4HhKQ7m0kCOXYVQDIM8CFghiFr3HmPj',
+                // 【关键修正】必须包含在 parsers 数组中
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser', 
+            ],
         ],
         'user' => [
             'identityClass' => 'common\models\User',

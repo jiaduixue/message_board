@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Url;
 /** @var yii\web\View $this */
-
+use yii\helpers\Html; // 添加这一行
 $this->title = 'My Yii Application';
 ?>
 
@@ -31,7 +31,7 @@ $this->title = 'My Yii Application';
                                 <li><a class="J_menuItem" href="mailbox.html" tppabs="http://www.zi-han.net/theme/hplus/mailbox.html">信箱</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="login.html" tppabs="http://www.zi-han.net/theme/hplus/login.html">安全退出</a>
+                                <li><a href="#"  onclick="document.getElementById('logout-form').submit(); return false;" tppabs="<?= Url::to(['site/logout', 'id' => $id], true) ?>">安全退出</a>
                                 </li>
                             </ul>
                         </div>
@@ -270,7 +270,7 @@ $this->title = 'My Yii Application';
                         </li>
                     </ul>
                 </div>
-                <a href="login.html" tppabs="http://www.zi-han.net/theme/hplus/login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+                <a href="#"  onclick="document.getElementById('logout-form').submit(); return false;" tppabs="<?= Url::to(['site/logout', 'id' => $id], true) ?>" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<?= Url::to(['home/index', 'id' => $id], true) ?>" tppabs="<?= Url::to(['home/index', 'id' => $id], true) ?>" frameborder="0" data-id="<?= Url::to(['home/index', 'id' => $id], true) ?>" seamless></iframe>
@@ -279,6 +279,10 @@ $this->title = 'My Yii Application';
                 <div class="pull-right">&copy; 2014-2015 <a href="javascript:if(confirm(%27http://www.zi-han.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.zi-han.net/%27" tppabs="http://www.zi-han.net/" target="_blank">zihan's blog</a>
                 </div>
             </div>
+           
+            <form id="logout-form" method="post" action="<?= Yii::$app->urlManager->createUrl(['site/logout']) ?>" style="display:none;">
+                <?= Html::hiddenInput('_csrf', Yii::$app->request->csrfToken) ?>
+            </form>
         </div>
         <!--右侧部分结束-->
         <!--右侧边栏开始-->

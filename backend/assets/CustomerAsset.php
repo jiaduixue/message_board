@@ -21,6 +21,7 @@ class CustomerAsset extends AssetBundle
         'css/plugins/iCheck/custom.css',
         'css/animate.min.css',
         'css/style.min.css-v=4.0.0.css',
+        'css/plugins/toastr/toastr.min.css'
     ];
     public $js = [
         'js/jquery.min.js-v=2.1.4.js',
@@ -32,6 +33,7 @@ class CustomerAsset extends AssetBundle
         'js/plugins/bootstrap-table/bootstrap-table-mobile.min.js',
         'js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js',
         'js/demo/bootstrap-table-demo.min.js',
+        'js/plugins/toastr/toastr.min.js',
         '../../../tajs.qq.com/stats-sId=9051096.js',
         'js/plugins/iCheck/icheck.min.js',
         'js/demo/peity-demo.min.js'
