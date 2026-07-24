@@ -152,18 +152,18 @@ class CustomerController extends Controller
             if ( $model->load($post,'Customer')) {
                 $customer = $model->edit($id);
                 
-                if($return->status != 'error'){
+                if($customer->status != 'error'){
                     return [
                     
                         'status' => 200,
-                        'message' => '数据添加成功',
-                        'error' => $$post['id']
+                        'message' => '数据修改成功',
+                        'error' => $customer
                     ];
                 }else{
                     return [
                         'status' => 500,
-                        'message' => '数据添加失败',
-                        'error' => $return
+                        'message' => '数据修改失败',
+                        'error' => $customer
                     ];
                 }
             
@@ -173,7 +173,7 @@ class CustomerController extends Controller
             
                 return [
                     'status' => 500,
-                    'message' => '数据添加失败',
+                    'message' => '数据修改失败',
                    
                     's'=>$post
                 ];

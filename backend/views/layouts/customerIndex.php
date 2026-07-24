@@ -192,16 +192,16 @@ CustomerAsset::register($this);
               success: function(res) {
                  if(res.status == 200){
                     // 关闭模态框
-                    $('#addCustomer').modal('hide');
+                    $('#editCustomer').modal('hide');
                     // 刷新表格
                     $('#customerIndex').bootstrapTable('refresh');
                      
                  }
-                 toastr.success("客户添加页面","客户添加成功!")
+                 toastr.success("客户修改页面","客户修改成功!")
                   
               },
               error: function() {
-                toastr.error("客户添加页面","客户添加失败!")
+                toastr.error("客户修改页面","客户修改失败!")
               }
               });
           }

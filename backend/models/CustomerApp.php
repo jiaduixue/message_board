@@ -13,6 +13,18 @@ class CustomerApp extends Model
 {
     public $username;
     public $password;
+    public $real_name;
+    public $nickname;
+    public $gender;
+    public $birthday;
+    public $phone;
+    public $email;
+    public $avatar_url;
+    public $bio;
+    public $github_link;
+    public $blog_link;
+    public $skills;
+    public $status;
     const SCENARIO_REGISTER = 'add';
     const SCENARIO_LOGIN = 'login';
     const SCENARIO_UPDATE = 'edit';
@@ -38,7 +50,11 @@ class CustomerApp extends Model
     
             // 更新场景：密码非必填（如果填了才验证长度）
             ['username', 'required', 'on' => self::SCENARIO_UPDATE],
-            
+              // 或者设置默认值
+            [['real_name'], 'default', 'value' => ''],
+            // 这里的字段允许被 mass-assignment (批量赋值)
+            [['nickname', 'phone', 'gender','skills','status',
+            'birthday','email','avatar_url','bio','github_link','blog_link'], 'string', 'max' => 255],
         ];
     }
 
@@ -97,22 +113,23 @@ class CustomerApp extends Model
         }
         // 2. 创建 User 模型实例并赋值
         $customer = $this->getById($id);
+       
         $customer->username = $this->username;
         
         $customer->real_name = $this->real_name;
-        
-        if($this->nickname) $customer->nickname = $this->nickname;
-        if($this->gender) $customer->gender = $this->gender;
-        if($this->birthday) $customer->birthday = $this->birthday;
-        if($this->phone) $customer->phone = $this->phone;
-        if($this->email) $customer->email = $this->email;
-        if($this->avatar_url) $customer->avatar_url = $this->avatar_url;
-        if($this->bio) $customer->bio = $this->bio;
-        if($this->github_link) $customer->github_link = $this->github_link;
-        if($this->blog_link) $customer->blog_link = $this->blog_link;
+        // $customer->attributes = $this;
+        $customer->nickname = $this->nickname;
+        $customer->gender = $this->gender;
+        $customer->birthday = $this->birthday;
+        $customer->phone = $this->phone;
+        $customer->email = $this->email;
+        $customer->avatar_url = $this->avatar_url;
+        $customer->bio = $this->bio;
+        $customer->github_link = $this->github_link;
+        $customer->blog_link = $this->blog_link;
        
-        if($this->skills) $customer->skills = $this->skills;
-        if($this->status) $customer->status = $this->status;
+        $customer->skills = $this->skills;
+        $customer->status = $this->status;
         if($this->password){
             $customer->password = $this->password;
             // 3. 核心步骤：使用安全组件对密码进行单向哈希加密
