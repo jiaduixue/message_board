@@ -33,7 +33,7 @@ class CustomerController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout','add','edit', 'get-customer-by-id',
+                        'actions' => ['logout','add','edit', 'delete','get-customer-by-id',
                          'index', 'member' ,'info','get-list','get-member-list' ,'get-info-list','count'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -141,6 +141,47 @@ class CustomerController extends Controller
      *
      * @return string
      */
+    public function actionDelete()
+    {
+        $model = new CustomerApp();
+        $post = Yii::$app->request->post();
+        $id = $post['id'];
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if($id !== null){
+            // 如果表单被提交且注册成功
+            $customer = $model->del($id);
+                
+                if($customer){
+                    return [
+                    
+                        'status' => 200,
+                        'message' => '数据修改成功',
+                        'error' => $customer
+                    ];
+                }else{
+                    return [
+                        'status' => 500,
+                        'message' => '数据修改失败',
+                        'error' => $customer
+                    ];
+                }
+        }else {
+            return [
+                'status' => 500,
+                'message' => '确少用户id',
+                's'=>$post
+            ];
+        }
+        
+
+
+    }
+
+    /**
+     * add user
+     *
+     * @return string
+     */
     public function actionEdit()
     {
         $model = new CustomerApp();
@@ -152,7 +193,7 @@ class CustomerController extends Controller
             if ( $model->load($post,'Customer')) {
                 $customer = $model->edit($id);
                 
-                if($customer->status != 'error'){
+                if($customer){
                     return [
                     
                         'status' => 200,

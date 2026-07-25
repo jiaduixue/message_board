@@ -76,8 +76,20 @@ CustomerAsset::register($this);
                   field: 'password',
                   title: '密码'
               }, {
-                  field: 'gender',
-                  title: '性别'
+                  field: 'status',
+                  title: '状态',
+                  formatter: function(value, row, index) {
+                      // 定义「数字 → 文字」的映射关系（根据业务需求调整）
+                      const statusMap = {
+                          0: '已删除',
+                          10: '正常',
+                          '-':'待审核',
+                          9: '待审核'
+                          // 若有更多状态，继续补充...
+                      };
+                      // 返回映射后的文字，若数字不在映射表中则显示原始值
+                      return statusMap[value] || value;
+                  }
               }, {
                   field: 'created_at',
                   title: '创建时间'
@@ -97,6 +109,100 @@ CustomerAsset::register($this);
                   }
               }]
           });
+          function customerDetail(id){
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+              // 假设你的表格 ID 是 #myTable
+              // 或者如果没设 uniqueId，可以用 getData()[index]，但上面的方法更稳
+              if(id) {
+                $.ajax({
+                    url: "<?= Url::to(['customer/get-customer-by-id', 'id' => $id], true) ?>" , // 你的后端接口地址
+                    type: 'POST',
+                    data:  {id:  id},
+                    headers: {
+                        'X-CSRF-Token': csrfToken
+                    },
+                    success: function(res) {
+                      if(res.status == 200){
+                        var res = res.data;
+                       // 将数据填入 input
+                        $('#detail_id').val(res.id);
+                        $('#detail_username').val(res.username);
+                        $('#detail_password').val(res.password);
+                        $('#detail_real_name').val(res.real_name);
+                        $('#detail_nickname').val(res.nickname);
+                        $('#detail_birthday').val(res.birthday);
+                        $('#detail_phone').val(res.phone);
+                        $('#detail_email').val(res.email);
+                        $('#detail_github_link').val(res.github_link);
+                        $('#detail_blog_link').val(res.blog_link);
+                        $('#detail_bio').val(res.bio);
+                        $('#detail_avatar_url').val(res.avatar_url);
+                        $('#detail_gender').val(res.gender);
+                        $('#detail_skills').val(res.skills);
+                        $('#detail_status').val(res.status);
+                             
+                          // 使用 jQuery 显示模态框
+                        $('#detailCustomer').modal('show');
+                      }
+                      toastr.info("客户详情页面","信息加载成功!")
+                        
+                    },
+                    error: function() {
+                      toastr.error("客户详情页面","信息加载失败!")
+                    }
+                });
+                
+              }else{
+                toastr.error("客户详情加载页面","id失败!")
+              }
+
+          }
+          function deleteCustomer(id){
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+              swal({
+                title:"您确定要删除这条信息吗",
+                text:"删除后将无法恢复，请谨慎操作！",
+                type:"warning",
+                showCancelButton:true,
+                confirmButtonColor:"#DD6B55",
+                confirmButtonText:"是的，我要删除！",
+                cancelButtonText:"让我再考虑一下…",
+                closeOnConfirm:false,
+                closeOnCancel:false
+              },function(isConfirm){
+                if(isConfirm){
+                  if(id) {
+                      $.ajax({
+                          url: "<?= Url::to(['customer/delete', 'id' => $id], true) ?>" , // 你的后端接口地址
+                          type: 'POST',
+                          data:  {id:  id},
+                          headers: {
+                              'X-CSRF-Token': csrfToken
+                          },
+                          success: function(res) {
+                            if(res.status == 200){
+                              var res = res.data;
+                                  
+                            }
+                            swal("删除成功！","您已经永久删除了这条信息。","success")
+                              
+                          },
+                          error: function() {
+                            swal("已取消","服务器异常","error")
+                          }
+                      });
+                      
+                    }else{
+                      swal("已取消","id缺失！","error")
+                    }
+                  
+                }else{
+                  swal("已取消","您取消了删除操作！","error")
+                }
+              })
+
+
+          }
           // 1. 打开模态框并填充数据
           function editCustomerModal(id) {
              var csrfToken = $('meta[name="csrf-token"]').attr('content');

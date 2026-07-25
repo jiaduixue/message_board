@@ -17,7 +17,7 @@ class CustomerAsset extends AssetBundle
         'css/font-awesome.min.css-v=4.4.0.css',
         'css/plugins/bootstrap-table/bootstrap-table.min.css',
         'css/plugins/footable/footable.core.css',
-
+        'css/plugins/sweetalert/sweetalert.css',
         'css/plugins/iCheck/custom.css',
         'css/animate.min.css',
         'css/style.min.css-v=4.0.0.css',
@@ -34,6 +34,7 @@ class CustomerAsset extends AssetBundle
         'js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js',
         'js/demo/bootstrap-table-demo.min.js',
         'js/plugins/toastr/toastr.min.js',
+        'js/plugins/sweetalert/sweetalert.min.js',
         '../../../tajs.qq.com/stats-sId=9051096.js',
         'js/plugins/iCheck/icheck.min.js',
         'js/demo/peity-demo.min.js'

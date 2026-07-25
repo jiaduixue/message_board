@@ -28,7 +28,7 @@ class CustomerApp extends Model
     const SCENARIO_REGISTER = 'add';
     const SCENARIO_LOGIN = 'login';
     const SCENARIO_UPDATE = 'edit';
-
+    const SCENARIO_DELETE = 'del';
 
     /**
      * {@inheritdoc}
@@ -99,7 +99,18 @@ class CustomerApp extends Model
 
        
     }
-
+    public function del($id)
+    {
+        // 2. 创建 User 模型实例并赋值
+        $customer = $this->getById($id);
+        $customer->status = Customer::STATUS_DELETED;
+        // 5. 将数据保存到数据库
+        if ($customer->save()) {
+            return $customer;
+        }else{
+            return null;
+        }
+    }
     public function edit($id)
     {
         
@@ -143,10 +154,7 @@ class CustomerApp extends Model
         if ($customer->save()) {
             return $customer;
         }else{
-            return json_encode([
-                'status' => 'error',
-                'data' => 22,
-            ]);
+            return null;
         }
 
        
