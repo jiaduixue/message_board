@@ -77,28 +77,7 @@ class SystemController extends Controller
         $this->layout = 'system';
         return $this->render('print');
     }
-        /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionBlog()
-    {
-      
-        $this->layout = 'system';
-        return $this->render('blog');
-    }
-        /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionBlogDetail()
-    {
-      
-        $this->layout = 'system';
-        return $this->render('blogDetail');
-    }
+    
     /**
      * Displays homepage.
      *
@@ -110,28 +89,7 @@ class SystemController extends Controller
         $this->layout = 'system';
         return $this->render('file');
     }
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionEmployee()
-    {
-      
-        $this->layout = 'system';
-        return $this->render('employee');
-    }
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionEmployeeDetail()
-    {
-      
-        $this->layout = 'system';
-        return $this->render('employeeDetail');
-    }
+    
       /**
      * Displays homepage.
      *
@@ -154,17 +112,7 @@ class SystemController extends Controller
         $this->layout = 'system';
         return $this->render('projectDetail');
     }
-     /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionTeam()
-    {
-      
-        $this->layout = 'system';
-        return $this->render('team');
-    }
+     
    /**
      * Displays homepage.
      *

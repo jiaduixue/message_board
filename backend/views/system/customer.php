@@ -12,10 +12,8 @@ $this->title = '留言系统';
                 <div class="ibox">
                     <div class="ibox-content">
                         <span class="text-muted small pull-right">最后更新：<i class="fa fa-clock-o"></i> 2015-09-01 12:00</span>
-                        <h2>客户管理</h2>
-                        <p>
-                            所有客户必须通过邮件验证
-                        </p>
+                        <h2>客户/管理员查看</h2>
+          
                         <div class="input-group">
                             <input type="text" placeholder="查找客户" class="input form-control">
                             <span class="input-group-btn">
@@ -25,9 +23,9 @@ $this->title = '留言系统';
                         <div class="clients-list">
                             <ul class="nav nav-tabs">
                                 <span class="pull-right small text-muted">1406 个客户</span>
-                                <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> 联系人</a>
+                                <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> 用户</a>
                                 </li>
-                                <li class=""><a data-toggle="tab" href="#tab-2"><i class="fa fa-briefcase"></i> 公司</a>
+                                <li class=""><a data-toggle="tab" href="#tab-2"><i class="fa fa-briefcase"></i> 管理员</a>
                                 </li>
                             </ul>
                             <div class="tab-content">

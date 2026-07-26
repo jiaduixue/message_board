@@ -20,6 +20,16 @@ use yii\db\Expression;
  * @property string $verification_token
  * @property string $email
  * @property string $auth_key
+ * @property string $real_name
+ * @property string $nickname
+ * @property string $gender
+ * @property string $birthday
+ * @property string $phone
+ * @property string $avatar_url
+ * @property string $bio
+ * @property string $skills
+ * @property string $github_link
+ * @property string $blog_link
  * @property integer $status
  * @property string $created_at
  * @property string $updated_at

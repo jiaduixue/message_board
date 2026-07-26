@@ -80,12 +80,8 @@ $this->title = 'My Yii Application';
                     </div>
                     <div class="ibox-content">
                         <div class="row">
-                            <div class="col-sm-9">
-                                <div class="flot-chart">
-                                    <div class="flot-chart-content" id="flot-dashboard-chart"></div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
+                        
+                            <div class="col-sm-12">
                                 <ul class="stat-list">
                                     <li>
                                         <h2 class="no-margins">2,346</h2>
@@ -364,7 +360,7 @@ $this->title = 'My Yii Application';
                             <div class="ibox-content">
 
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <table class="table table-hover margin bottom">
                                             <thead>
                                                 <tr>

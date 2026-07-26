@@ -9,43 +9,7 @@ $this->title = 'My Yii Application';
 <div class="wrapper wrapper-content">
         <div class="row">
             <div class="col-sm-4">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>数据报告</h5> <span class="label label-primary">K+</span>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">选项1</a>
-                                </li>
-                                <li><a href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div>
-
-                            <div class="pull-right text-right">
-
-                                <span class="bar_dashboard">5,3,9,6,5,9,7,3,5,2,4,7,3,2,7,9,6,4,5,7,3,2,1,0,9,5,6,8,3,2,1</span>
-                                <br/>
-                                <small class="font-bold">&yen; 20 054.43</small>
-                            </div>
-                            <h4>广东省销售数据
-                                            <br/>
-                                            <small class="m-r"><a href="graph_flot.html" tppabs="http://www.zi-han.net/theme/hplus/graph_flot.html"> 查看所有数据</a> </small>
-                                        </h4>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>最新动态</h5>
@@ -160,7 +124,6 @@ $this->title = 'My Yii Application';
                                 </div>
                             </div>
 
-                            <button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-down"></i> 加载更多</button>
 
                         </div>
 
@@ -190,10 +153,7 @@ $this->title = 'My Yii Application';
                             </a>
                         </div>
                     </div>
-                    <div class="ibox-content ibox-heading">
-                        <h3>还有约79842492229个Bug需要修复</h3>
-                        <small><i class="fa fa-map-marker"></i> 地点当然是在办公室</small>
-                    </div>
+               
                     <div class="ibox-content timeline">
 
                         <div class="timeline-item">

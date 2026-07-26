@@ -185,7 +185,7 @@ CustomerAsset::register($this);
                                   
                             }
                             swal("删除成功！","您已经永久删除了这条信息。","success")
-                              
+                            $('#customerIndex').bootstrapTable('refresh');
                           },
                           error: function() {
                             swal("已取消","服务器异常","error")
