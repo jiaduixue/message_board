@@ -85,20 +85,7 @@ $this->title = 'My Yii Application';
                             </li>
                             <li><a class="J_menuItem" href="<?= Url::to(['system/file', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/file', 'id' => $id], true) ?>">文件管理器</a>
                             </li>
-           
-
-                           
-                            <li>
-                                <a href="#">单据 <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li><a class="J_menuItem" href="<?= Url::to(['system/receipt', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/receipt', 'id' => $id], true) ?>">单据</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="<?= Url::to(['system/print', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/print', 'id' => $id], true) ?>">单据打印</a>
-                                    </li>
-                                </ul>
-                            </li>
-                          
-                    
+    
                           
                         </ul>
                     </li>
@@ -117,18 +104,6 @@ $this->title = 'My Yii Application';
                         </ul>
                     </li>
                 
-                    <li>
-                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">系统信息</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html" tppabs="http://www.zi-han.net/theme/hplus/form_basic.html">系统日志</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_validate.html" tppabs="http://www.zi-han.net/theme/hplus/form_validate.html">系统</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_advanced.html" tppabs="http://www.zi-han.net/theme/hplus/form_advanced.html">系统</a>
-                            </li>
-                            
-                        </ul>
-                    </li>
 
                 </ul>
             </div>

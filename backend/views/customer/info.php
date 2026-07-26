@@ -385,18 +385,17 @@ $this->title = '留言系统';
                                                         </label>
 
                                                         <div class="col-sm-10"  id="edit_gender">
-                                                            
                                                             <div class="radio i-checks">
                                                                 <label>
-                                                                    <div class="iradio_square-green" style="position: relative;">
-                                                                    <input type="radio" value="1" name="gender" style="position: absolute; opacity: 0;">
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> <i></i> 男</label>
+                                                                    <input style="width:22px; margin-top:2px" type="radio"  name="gender"  value="1" name="a"> 
+                                                                    <i class="fa fa-venus"></i>  男</label>
+                                                                </label>
                                                             </div>
                                                             <div class="radio i-checks">
-                                                                <label class="">
-                                                                    <div class="iradio_square-green " style="position: relative;">
-                                                                    <input type="radio"  value="2" name="gender" style="position: absolute; opacity: 0;">
-                                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> <i></i> 女</label>
+                                                                <label>
+                                                                    <input style="width:22px;    margin-top:2px" type="radio"  name="gender"   value="2" name="a">
+                                                                    
+                                                                    <i class="fa fa-mercury"></i> 女</label>
                                                             </div>
                                                             
                                                         </div>

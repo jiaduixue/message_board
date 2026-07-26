@@ -130,7 +130,9 @@ class CustomerApp extends Model
         $customer->real_name = $this->real_name;
         // $customer->attributes = $this;
         $customer->nickname = $this->nickname;
-        $customer->gender = $this->gender;
+        if($this->gender){
+            $customer->gender = $this->gender;
+        }
         $customer->birthday = $this->birthday;
         $customer->phone = $this->phone;
         $customer->email = $this->email;

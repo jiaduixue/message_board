@@ -55,28 +55,6 @@ class SystemController extends Controller
             ],
         ];
     }
-       /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionReceipt()
-    {
-      
-        $this->layout = 'system';
-        return $this->render('receipt');
-    }
-       /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionPrint()
-    {
-      
-        $this->layout = 'system';
-        return $this->render('print');
-    }
     
     /**
      * Displays homepage.

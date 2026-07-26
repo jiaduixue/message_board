@@ -87,8 +87,18 @@ CustomerAsset::register($this);
                           9: '待审核'
                           // 若有更多状态，继续补充...
                       };
-                      // 返回映射后的文字，若数字不在映射表中则显示原始值
-                      return statusMap[value] || value;
+                      if(value == 9 || value == '-'){
+                        return '<span class="label label-primary">待审核 </span>'
+                      }else if(value == 10){
+                        return '<span class="label label-default">正常 </span>'
+
+                      }else{
+                        return '<span class="label label-danger">已删除 </span>'
+
+                      }
+                      
+                    
+                     
                   }
               }, {
                   field: 'created_at',
@@ -99,12 +109,13 @@ CustomerAsset::register($this);
               }, {
                   field: 'action',
                   title: '操作',
+                  clase:"project-actions",
                   formatter: function (value, row, index) {
                       // 这里直接返回 HTML 字符串
                       return [
-                          '<a class=" " href="javascript:void(0)" onclick="editCustomerModal(' + row.id + ')"><i class="fa fa-wrench "></i>编辑</a>',
-                          '<a class=" " href="javascript:void(0)" onclick="deleteCustomer(' + row.id + ')"><i class="fa fa-times text-danger"></i>删除</a>',
-                          '<a class=" " href="javascript:void(0)" onclick="customerDetail(' + row.id + ')"><i class="fa fa-link  text-navy"></i>详情</a>'
+                          '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="editCustomerModal(' + row.id + ')"><i class="fa fa-pencil"></i>编辑</a>',
+                          '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="deleteCustomer(' + row.id + ')"><i class="fa fa-times text-danger"></i>删除</a>',
+                          '<a class=" btn btn-white btn-sm" href="javascript:void(0)" onclick="customerDetail(' + row.id + ')"><i class="fa fa-folder"></i>详情</a>'
                       ].join(''); // join('') 用于把数组变成字符串
                   }
               }]

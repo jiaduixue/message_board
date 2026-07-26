@@ -8,56 +8,8 @@ $this->title = 'My Yii Application';
 
 <div class="wrapper wrapper-content">
         <div class="row">
-            <div class="col-sm-4">
-                
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>最新动态</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">选项1</a>
-                                </li>
-                                <li><a href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content no-padding">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <p><a class="text-info" href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">#感谢有你#</a> 感谢你们一路的相伴，未来也请让我为你们撑腰，我们会更好</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 1分钟前</small>
-                            </li>
-                            <li class="list-group-item">
-                                <p><a class="text-info" href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">@颜文字君</a> 女生身高×1.09后，就是最适合你的男生身高；相反，男生是÷1.09就可以了..小伙伴们可以试着算下..【图是我的..(*/ω＼*)</p>
-                                <div class="text-center m">
-                                    <span id="sparkline8"></span>
-                                </div>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2小时前</small>
-                            </li>
-
-                            <li class="list-group-item">
-                                <p><a class="text-info" href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">#发型师#</a> 刚才剪发，顾客在看这个视频，妈蛋，这舞姿太销魂了，笑得手颤抖。。。</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 1分钟前</small>
-                            </li>
-                            <li class="list-group-item">
-                                <p><a class="text-info" href="index.html#" tppabs="http://www.zi-han.net/theme/hplus/index.html#">#一年级#</a> ——#陈氏父子# cut：“他是我的陈爸爸”[心]“我叫陈思成，陈老师的陈” [心]“不再见就是，你也好，爸爸也好，妈妈也好，都永远不要说再见</p>
-                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2分钟前</small>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
+            
+            <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>最新消息</h5>
@@ -131,7 +83,7 @@ $this->title = 'My Yii Application';
                 </div>
 
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>项目进度</h5>

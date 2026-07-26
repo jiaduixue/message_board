@@ -18,10 +18,16 @@ class SystemAsset extends AssetBundle
         'js/plugins/gritter/jquery.gritter.css',
         'css/animate.min.css',
         'css/style.min.css-v=4.0.0.css',
+        'css/plugins/iCheck/custom.css',
+
+        'css/plugins/toastr/toastr.min.css'
     ];
     public $js = [
         'js/jquery.min.js-v=2.1.4.js',
         'js/bootstrap.min.js-v=3.3.5.js',
+        'js/plugins/bootstrap-table/bootstrap-table.min.js',
+        'js/plugins/bootstrap-table/bootstrap-table-mobile.min.js',
+        'js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js',
         'js/plugins/flot/jquery.flot.js',
         'js/plugins/flot/jquery.flot.tooltip.min.js',
         'js/plugins/flot/jquery.flot.spline.js',
@@ -39,7 +45,10 @@ class SystemAsset extends AssetBundle
         'js/plugins/slimscroll/jquery.slimscroll.min.js',
         'js/plugins/easypiechart/jquery.easypiechart.js',
         'js/plugins/sparkline/jquery.sparkline.min.js',
+        'js/plugins/toastr/toastr.min.js',
         'js/demo/sparkline-demo.min.js',
+        'js/plugins/iCheck/icheck.min.js',
+
         'js/plugins/layer/layer.min.js',
         'js/content.min.js',
         'js/welcome.min.js',
