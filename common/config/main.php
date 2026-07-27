@@ -8,7 +8,7 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=message_board',
+            'dsn' => 'mysql:host=127.0.0.1;dbname=message_board',
             'username' => 'yoga',
             'password' => 'Yogazlt1@',
             'charset' => 'utf8mb4',

@@ -57,7 +57,7 @@ SystemAsset::register($this);
             // params.limit: 每页显示条数 (例如10)
             
             // 方案 A：如果你的 PHP 里是用 offset 计算
-            offset: params.offset, 
+            offset: params.offset / params.limit , 
             limit: params.limit,
              // 方案 B：如果你的 PHP 里习惯用 page (页码)
             // page: Math.floor(params.offset / params.limit) + 1,
@@ -179,7 +179,7 @@ SystemAsset::register($this);
             // params.limit: 每页显示条数 (例如10)
             
             // 方案 A：如果你的 PHP 里是用 offset 计算
-            offset: params.offset, 
+            offset: params.offset / params.limit , 
             limit: params.limit,
              // 方案 B：如果你的 PHP 里习惯用 page (页码)
             // page: Math.floor(params.offset / params.limit) + 1,

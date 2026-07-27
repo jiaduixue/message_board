@@ -8,76 +8,8 @@ $this->title = '留言系统';
 
 <div class="wrapper wrapper-content">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-content mailbox-content">
-                        <div class="file-manager">
-                            <a class="btn btn-block btn-primary compose-mail" href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html">写信</a>
-                            <div class="space-25"></div>
-                            <h5>文件夹</h5>
-                            <ul class="folder-list m-b-md" style="padding: 0">
-                                <li>
-                                    <a href="mailbox.html" tppabs="http://www.zi-han.net/theme/hplus/mailbox.html"> <i class="fa fa-inbox "></i> 收件箱 <span class="label label-warning pull-right">16</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html" tppabs="http://www.zi-han.net/theme/hplus/mailbox.html"> <i class="fa fa-envelope-o"></i> 发信</a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html" tppabs="http://www.zi-han.net/theme/hplus/mailbox.html"> <i class="fa fa-certificate"></i> 重要</a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html" tppabs="http://www.zi-han.net/theme/hplus/mailbox.html"> <i class="fa fa-file-text-o"></i> 草稿 <span class="label label-danger pull-right">2</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html" tppabs="http://www.zi-han.net/theme/hplus/mailbox.html"> <i class="fa fa-trash-o"></i> 垃圾箱</a>
-                                </li>
-                            </ul>
-                            <h5>分类</h5>
-                            <ul class="category-list" style="padding: 0">
-                                <li>
-                                    <a href="mail_compose.html#" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html#"> <i class="fa fa-circle text-navy"></i> 工作</a>
-                                </li>
-                                <li>
-                                    <a href="mail_compose.html#" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html#"> <i class="fa fa-circle text-danger"></i> 文档</a>
-                                </li>
-                                <li>
-                                    <a href="mail_compose.html#" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html#"> <i class="fa fa-circle text-primary"></i> 社交</a>
-                                </li>
-                                <li>
-                                    <a href="mail_compose.html#" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html#"> <i class="fa fa-circle text-info"></i> 广告</a>
-                                </li>
-                                <li>
-                                    <a href="mail_compose.html#" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html#"> <i class="fa fa-circle text-warning"></i> 客户端</a>
-                                </li>
-                            </ul>
-
-                            <h5 class="tag-title">标签</h5>
-                            <ul class="tag-list" style="padding: 0">
-                                <li><a href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-tag"></i> 朋友</a>
-                                </li>
-                                <li><a href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-tag"></i> 工作</a>
-                                </li>
-                                <li><a href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-tag"></i> 家庭</a>
-                                </li>
-                                <li><a href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-tag"></i> 孩子</a>
-                                </li>
-                                <li><a href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-tag"></i> 假期</a>
-                                </li>
-                                <li><a href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-tag"></i> 音乐</a>
-                                </li>
-                                <li><a href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-tag"></i> 照片</a>
-                                </li>
-                                <li><a href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-tag"></i> 电影</a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-9 animated fadeInRight">
+           
+            <div class="col-sm-12 animated fadeInRight">
                 <div class="mail-box-header">
                     <div class="pull-right tooltip-demo">
                         <a href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="回复"><i class="fa fa-reply"></i> 回复</a>
@@ -167,7 +99,7 @@ $this->title = '留言系统';
                             <div class="clearfix"></div>
                         </div>
                     </div>
-                    <div class="mail-body text-right tooltip-demo">
+                    <div class="mail-body text-center tooltip-demo">
                         <a class="btn btn-sm btn-white" href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-reply"></i> 回复</a>
                         <a class="btn btn-sm btn-white" href="mail_compose.html" tppabs="http://www.zi-han.net/theme/hplus/mail_compose.html"><i class="fa fa-arrow-right"></i> 下一封</a>
                         <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="打印这封邮件" class="btn btn-sm btn-white"><i class="fa fa-print"></i> 打印</button>

@@ -68,17 +68,7 @@ class HomeController extends Controller
         $this->layout = 'content';
         return $this->render('index');
     }
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionBug()
-    {
-      
-        $this->layout = 'content';
-        return $this->render('bug');
-    }
+    
       /**
      * Displays homepage.
      *

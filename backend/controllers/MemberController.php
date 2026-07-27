@@ -74,6 +74,7 @@ class MemberController extends Controller
         $post = Yii::$app->request->post();
        
         Yii::$app->response->format = Response::FORMAT_JSON;
+        
         // 如果表单被提交且注册成功
         if ($model->load($post,'Member')) {
             $return = $model->add();

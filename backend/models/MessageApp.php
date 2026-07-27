@@ -12,11 +12,12 @@ use common\models\Message;
 class MessageApp extends Model
 {
     public $customer_id;
-    public $level_name;
-    public $level_code;
-    public $points;
-    public $expire_date;
-    public $join_date;
+    public $parent_id;
+    public $username;
+    public $email;
+    public $content;
+    public $title;
+    public $ip_address;
     public $status;
     const SCENARIO_REGISTER = 'add';
     const SCENARIO_LOGIN = 'login';
@@ -29,15 +30,35 @@ class MessageApp extends Model
     public function rules()
     {
         return [
-            
+            [['customer_id'], 'required'],
+
             // 公共规则：所有场景下，用户名和密码都必须是字符串
-            [['level_code', 'level_name','points','expire_date','join_date','status'], 'string'], 
-            [['customer_id'], 'integer'],
+            [['username', 'email','ip_address','status'], 'string'], 
+            [['customer_id','parent_id'], 'integer'],
+              // 如果不是必填，但也需要保存，必须标记为 safe：
+            [['username', 'parent_id', 'customer_id', 'content', 'email', 'title'], 'safe'],
         ];
     }
 
 
-
+    public function review($id)
+        {
+            // 2. 创建 User 模型实例并赋值
+            $member = $this->getById($id);
+            $member->status = Message::STATUS_DELETED;
+            // 5. 将数据保存到数据库
+            if ($member->save()) {
+                return json_encode([
+                    'status' => 'success',
+                    'data' => $member,
+                ]);
+            }else{
+                return json_encode([
+                    'status' => 'error',
+                    'data' => 'id重复',
+                ]);
+            }
+        }
     /**
      * Logs in a user using the provided username and password.
      *
@@ -50,16 +71,20 @@ class MessageApp extends Model
         if (!$this->validate()) {
             return json_encode([
                 'status' => 'error',
-                'data' => 11,
+                'data' => '11',
             ]);
  
         }
+     
         // 2. 创建 User 模型实例并赋值
         $member = new Message();
-        $member->level_code = $this->level_code;
-        //$member->level_name = $this->level_name;
+        $member->username = $this->username;
+        $member->parent_id = $this->parent_id;
         $member->customer_id = $this->customer_id;
-        $member->status = $member::STATUS_ACTIVE;
+        $member->title = $this->title;
+        $member->content = trim($this->content);
+        $member->email = $this->email;
+        $member->status = $member::STATUS_PENDING_REVIEW;
       
         // 5. 将数据保存到数据库
         if ($member->save()) {

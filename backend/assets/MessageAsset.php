@@ -15,18 +15,29 @@ class MessageAsset extends AssetBundle
         'css/bootstrap.min.css-v=3.3.5.css',
         'css/font-awesome.min.css-v=4.4.0.css',
         'css/plugins/morris/morris-0.4.3.min.css',
+        'css/plugins/bootstrap-table/bootstrap-table.min.css',
         'css/plugins/iCheck/custom.css',
+        'css/plugins/sweetalert/sweetalert.css',
         'js/plugins/gritter/jquery.gritter.css',
         'css/plugins/summernote/summernote.css',
         'css/plugins/summernote/summernote-bs3.css',
         'css/animate.min.css',
         'css/style.min.css-v=4.0.0.css',
+
+        'css/plugins/toastr/toastr.min.css'
     ];
     public $js = [
         'js/jquery.min.js-v=2.1.4.js',
         'js/bootstrap.min.js-v=3.3.5.js',
         'js/content.min.js-v=1.0.0.js',
         'js/plugins/iCheck/icheck.min.js',
+        'js/plugins/sweetalert/sweetalert.min.js',
+        'js/plugins/bootstrap-table/bootstrap-table.min.js',
+        'js/plugins/bootstrap-table/bootstrap-table-mobile.min.js',
+        'js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js',
+        'js/plugins/metisMenu/jquery.metisMenu.js',
+
+        'js/plugins/toastr/toastr.min.js',
         'js/plugins/summernote/summernote.min.js',
         'js/plugins/summernote/summernote-zh-CN.js'
         

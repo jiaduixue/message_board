@@ -15,25 +15,9 @@ $this->title = 'My Yii Application';
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <span><img alt="image" class="img-circle" src="img/profile_small.jpg" tppabs="http://www.zi-han.net/theme/hplus/img/profile_small.jpg" /></span>
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
-                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="J_menuItem" href="form_avatar.html" tppabs="http://www.zi-han.net/theme/hplus/form_avatar.html">修改头像</a>
-                                </li>
-                                <li><a class="J_menuItem" href="profile.html" tppabs="http://www.zi-han.net/theme/hplus/profile.html">个人资料</a>
-                                </li>
-                                <li><a class="J_menuItem" href="contacts.html" tppabs="http://www.zi-han.net/theme/hplus/contacts.html">联系我们</a>
-                                </li>
-                                <li><a class="J_menuItem" href="mailbox.html" tppabs="http://www.zi-han.net/theme/hplus/mailbox.html">信箱</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a href="#"  onclick="document.getElementById('logout-form').submit(); return false;" tppabs="<?= Url::to(['site/logout', 'id' => $id], true) ?>">安全退出</a>
-                                </li>
-                            </ul>
+                            <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
+                                <span class="text-muted text-xs block">超级管理员</span>
+                            
                         </div>
                         <div class="logo-element">H+
                         </div>
@@ -48,9 +32,7 @@ $this->title = 'My Yii Application';
                             <li>
                                 <a class="J_menuItem" href="<?= Url::to(['home/index', 'id' => $id], true) ?>" tppabs="<?= Url::to(['home/index', 'id' => $id], true) ?>" data-index="0">首页</a>
                             </li>
-                            <li>
-                                <a class="J_menuItem" href="<?= Url::to(['home/bug', 'id' => $id], true) ?>" tppabs="<?= Url::to(['home/bug', 'id' => $id], true) ?>">bug问题</a>
-                            </li>
+                          
                             <li>
                                 <a class="J_menuItem" href="<?= Url::to(['home/info', 'id' => $id], true) ?>" tppabs="<?= Url::to(['home/info', 'id' => $id], true) ?>">信息</a>
                             </li>
@@ -77,13 +59,13 @@ $this->title = 'My Yii Application';
                         <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
     
-                            <li><a class="J_menuItem" href="<?= Url::to(['system/project', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/project', 'id' => $id], true) ?>">项目</a>
+                            <li><a class="J_menuItem" href="<?= Url::to(['system/project', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/project', 'id' => $id], true) ?>">用户动态</a>
                             </li>
     
                            
                             <li><a class="J_menuItem" href="<?= Url::to(['system/customer', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/customer', 'id' => $id], true) ?>">客户管理</a>
                             </li>
-                            <li><a class="J_menuItem" href="<?= Url::to(['system/file', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/file', 'id' => $id], true) ?>">文件管理器</a>
+                            <li><a class="J_menuItem" href="<?= Url::to(['system/file', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/file', 'id' => $id], true) ?>">头像管理器</a>
                             </li>
     
                           

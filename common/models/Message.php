@@ -1,5 +1,5 @@
 <?php
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 use yii\db\ActiveRecord;
@@ -15,11 +15,18 @@ use yii\data\ActiveDataProvider;
  * @property string|null $content
  * @property int|null $parent_id
  * @property string|null $ip_address
+ * @property int $customer_id
+ * @property integer $status
  * @property string|null $created_at
  * @property string|null $updated_at
  */
 class Message extends ActiveRecord
 {
+    const STATUS_PENDING_REVIEW = 1;
+    const STATUS_NO_READ = 2;
+    const STATUS_READ = 3;
+    const STATUS_DELETED = 0;
+
     public static function tableName()
     {
         return '{{%messages}}';
@@ -29,9 +36,8 @@ class Message extends ActiveRecord
     public function rules()
     {
         return [
-            [['content'], 'string'],
             [['parent_id'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'content', 'updated_at'], 'safe'],
             [['username'], 'string', 'max' => 50],
             [['email'], 'string', 'max' => 100],
             [['email'], 'email'], // 增加邮箱格式验证
@@ -49,6 +55,8 @@ class Message extends ActiveRecord
             'content' => '内容',
             'parent_id' => '父级ID',
             'ip_address' => 'IP地址',
+            'customer_id' => '用户id',
+            'status' => '状态',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
         ];
@@ -74,6 +82,7 @@ class Message extends ActiveRecord
     //                },
               
             ],
+        ];  
     }
        /**
      * 定义关联关系（可选）
