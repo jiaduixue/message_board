@@ -143,10 +143,13 @@ class UserController extends Controller
      */
     public function actionDelete()
     {
+      
         $model = new UserApp();
         $post = Yii::$app->request->post();
+     
         $id = $post['id'];
         Yii::$app->response->format = Response::FORMAT_JSON;
+        
         if($id !== null){
             // 如果表单被提交且注册成功
             $customer = $model->del($id);

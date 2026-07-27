@@ -12,6 +12,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
+use backend\models\MessageApp;
 use yii\data\ActiveDataProvider;
 use backend\models\CustomerApp;
 /**
@@ -33,7 +34,7 @@ class CustomerController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout','add','edit', 'delete','get-customer-by-id',
+                        'actions' => ['logout','add','delete-message','edit', 'delete','get-customer-by-id',
                          'index', 'member' ,'info','get-list','get-member-list' ,'get-info-list','count'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -60,7 +61,7 @@ class CustomerController extends Controller
             ],
         ];
     }
-
+    
     /**
      * Displays homepage.
      *
@@ -176,7 +177,53 @@ class CustomerController extends Controller
 
 
     }
+    
+/**
+     * add user
+     *
+     * @return string
+     */
+    public function actionDeleteMessage()
+    {
+        $model = new MessageApp();
+        $post = Yii::$app->request->post();
+        $id = $post['id'];
+        $type = $post['Message']['type'];
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if($id !== null){
+            // 如果表单被提交且注册成功
+            if($type == 1){
+                $customer = $model->del($id);
+            }else{
+                $customer = $model->review($id);
+            }
+           
+            $customer = json_decode($customer);
+                if($customer){
+                    return [
+                    
+                        'status' => 200,
+                        'message' => '数据修改成功',
+                        'error' => $customer
+                    ];
+                }else{
+                    return [
+                        'status' => 500,
+                        'message' => '数据修改失败',
+                        'error' => $customer
+                    ];
+                }
+        }else {
+            return [
+                'status' => 500,
+                'message' => '确少用户id',
+                's'=>$post
+            ];
+        }
+        
 
+
+    }
     /**
      * add user
      *

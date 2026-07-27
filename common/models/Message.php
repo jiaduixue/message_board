@@ -52,6 +52,7 @@ class Message extends ActiveRecord
             'id' => 'ID',
             'username' => '用户名',
             'email' => '邮箱',
+            'title' => '标题',
             'content' => '内容',
             'parent_id' => '父级ID',
             'ip_address' => 'IP地址',

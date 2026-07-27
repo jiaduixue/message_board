@@ -4,7 +4,6 @@ namespace backend\controllers;
 use Yii;
 use common\models\Message;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use backend\models\MessageApp;
@@ -24,7 +23,8 @@ class MessageController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','detail','add','add-message','get-list'],
+                        'actions' => ['index','detail',
+                        'get-message-by-id','add','add-message','get-list'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -33,7 +33,6 @@ class MessageController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'], // 删除操作只允许 POST 请求，防止误删
                     'logout' => ['post'],
                 ],
             ],
@@ -43,7 +42,7 @@ class MessageController extends Controller
     // 1. 留言列表展示
     public function actionIndex()
     {
-        $searchModel = new \common\models\Message(); // 搜索模型（Gii可自动生成）
+        $searchModel = new Message(); // 搜索模型（Gii可自动生成）
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $this->layout = 'message';
         return $this->render('index', [
@@ -87,7 +86,25 @@ class MessageController extends Controller
                 'message' => '数据获取成功',  
             ];
     }
+    /**
+     * Displays homepage.
+     *
+     * @return string 
+     */
+    public function actionGetMessageById()
+    {
 
+        // 1. 构建查询（不要执行 all() 或 count()）
+        $customer = MessageApp::getById(Yii::$app->request->post('id'));
+      
+            // 3. 返回数据（适用于 API 或 AJAX 请求）
+        Yii::$app->response->format = Response::FORMAT_JSON;
+            return [
+                'status' => 200,
+                'data' => $customer,
+                'message' => '数据获取成功',
+            ];
+    }
     // 1. 留言列表展示
     public function actionDetail()
     {
@@ -143,34 +160,8 @@ class MessageController extends Controller
         }
     }
 
-    // 2. 管理员回复功能
-    public function actionReply($id)
-    {
-        $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', '回复成功！');
-            return $this->redirect(['index']);
-        }
-
-        return $this->render('reply', [
-            'model' => $model,
-        ]);
-    }
-
-    // 3. 一键删除功能
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-        Yii::$app->session->setFlash('success', '留言删除成功！');
-        return $this->redirect(['index']);
-    }
-
-    protected function findModel($id)
-    {
-        if (($model = Message::findOne($id)) !== null) {
-            return $model;
-        }
-        throw new NotFoundHttpException('您请求的留言不存在。');
-    }
+   
+    
+   
 }

@@ -48,8 +48,7 @@ $this->title = 'My Yii Application';
                         <ul class="nav nav-second-level">
                             <li><a class="J_menuItem" href="<?= Url::to(['message/index', 'id' => $id], true) ?>" tppabs="<?= Url::to(['message/index', 'id' => $id], true) ?>">收件箱</a>
                             </li>
-                            <li><a class="J_menuItem" href="<?= Url::to(['message/detail', 'id' => $id], true) ?>" tppabs="<?= Url::to(['message/detail', 'id' => $id], true) ?>">查看邮件</a>
-                            </li>
+                          
                             <li><a class="J_menuItem" href="<?= Url::to(['message/add', 'id' => $id], true) ?>" tppabs="<?= Url::to(['message/add', 'id' => $id], true) ?>">写信</a>
                             </li>
                         </ul>

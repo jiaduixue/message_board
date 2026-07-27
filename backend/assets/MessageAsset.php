@@ -15,7 +15,6 @@ class MessageAsset extends AssetBundle
         'css/bootstrap.min.css-v=3.3.5.css',
         'css/font-awesome.min.css-v=4.4.0.css',
         'css/plugins/morris/morris-0.4.3.min.css',
-        'css/plugins/bootstrap-table/bootstrap-table.min.css',
         'css/plugins/iCheck/custom.css',
         'css/plugins/sweetalert/sweetalert.css',
         'js/plugins/gritter/jquery.gritter.css',

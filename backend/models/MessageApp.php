@@ -45,7 +45,7 @@ class MessageApp extends Model
         {
             // 2. 创建 User 模型实例并赋值
             $member = $this->getById($id);
-            $member->status = Message::STATUS_DELETED;
+            $member->status = Message::STATUS_NO_READ;
             // 5. 将数据保存到数据库
             if ($member->save()) {
                 return json_encode([
@@ -82,7 +82,7 @@ class MessageApp extends Model
         $member->parent_id = $this->parent_id;
         $member->customer_id = $this->customer_id;
         $member->title = $this->title;
-        $member->content = trim($this->content);
+        $member->content = $this->content;
         $member->email = $this->email;
         $member->status = $member::STATUS_PENDING_REVIEW;
       
