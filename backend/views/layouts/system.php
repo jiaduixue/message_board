@@ -86,6 +86,11 @@ SystemAsset::register($this);
                   field: 'id',
                   class:'project-people',
                   title: '用户ID',
+                  formatter: function(value, row, index) {
+                   
+                    return '动态ID： '+value+'<br><small>发布的用户ID：'+row.customer_id+'</small>'
+                     
+                  }
                  
               }, {
                   field: 'type',
@@ -148,6 +153,12 @@ SystemAsset::register($this);
           });
           function flesh(){
             $('#customerIndex').bootstrapTable('refresh');
+
+          }
+          function closeModel(){
+            $('#dynamicLikeIndex').bootstrapTable('destroy');
+            $('#dynamicCollectIndex').bootstrapTable('destroy');
+            $('#detailDynamic').modal('hide');
           }
           function customerDetail(id){
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
@@ -217,6 +228,7 @@ SystemAsset::register($this);
                           // 方案 A：如果你的 PHP 里是用 offset 计算
                           offset: params.offset / params.limit , 
                           limit: params.limit,
+                          dynamic_id:res.id
                           // 方案 B：如果你的 PHP 里习惯用 page (页码)
                           // page: Math.floor(params.offset / params.limit) + 1,
                           // pageSize: params.limit, 
@@ -261,6 +273,7 @@ SystemAsset::register($this);
                             }]
                         });
 
+                        getCommentList(res.id);
 
                         $('#dynamicCollectIndex').bootstrapTable({
                         showHeader: false,
@@ -278,6 +291,7 @@ SystemAsset::register($this);
                           // 方案 A：如果你的 PHP 里是用 offset 计算
                           offset: params.offset / params.limit , 
                           limit: params.limit,
+                          dynamic_id:res.id
                           // 方案 B：如果你的 PHP 里习惯用 page 
                               };
                           },
@@ -333,7 +347,67 @@ SystemAsset::register($this);
               }
 
           }
+          function getCommentList(id,page){
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+            page = page?page:0;
+            var id = id ? id :$('#detail_id').val();
+            if(id) {
+              $.ajax({
+                          url: "<?= Url::to(['dynamic/get-comment-list', 'id' => $id], true) ?>" , // 你的后端接口地址
+                          type: 'POST',
+                          data:  {dynamic_id:  id,page:page},
+                          headers: {
+                              'X-CSRF-Token': csrfToken
+                          },
+                          success: function(res) {
+                            var all_page = 0;
+                            if(res.total >= 1){
+                              all_page = Math.ceil(res.total / 10);
 
+                              let all_page_tab = '';
+                              for (let i = 0; i < all_page; i++) {
+                                all_page_tab += '<button onclick="getCommentList('+id+','+i+')" class="btn btn-primary" type="button">'+(i+1)+'</button> ';
+                              }
+                              $('#all_page_tab').html(all_page_tab);
+                            }
+                            if(res.rows.length >= 1){
+                              
+                              // 假设通过 AJAX 从后端获取评论数据
+                              let commentHtml = '';
+                                  res.rows.forEach(comment => { // 假设 res.data 是评论数组
+                                      commentHtml += `
+                                          <div class="feed-element">
+                                              <a href="profile.html?uid=${comment.customer_id}">
+                                                  <img src="${comment.customer.avatar_url}" class="img-circle" alt="头像">
+                                              </a>
+                                              <div class="media-body">
+                                                  <small class="pull-right text-navy">${comment.created_at}</small>
+                                                  <strong>${comment.customer.username}</strong> 发布了一个评论：
+                                                  <br>
+                                                  <small class="text-muted">性别 ${comment.customer.gender}</small>
+                                                  <div class="well">
+                                                    ${comment.content}
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      `;
+                                  });
+                                  // 插入到 #getCommentData 容器中
+                                  $('#getCommentData').html(commentHtml);
+
+                                  
+                            }else{
+                              $('#getCommentData').html('');
+                            }
+                          },
+                          error: function() {
+                            //swal("已取消","服务器异常","error")
+                          }
+                      });
+                  
+             }
+
+          }
 
           function deleteCustomer(id){
             var csrfToken = $('meta[name="csrf-token"]').attr('content');

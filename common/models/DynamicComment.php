@@ -118,7 +118,7 @@ class DynamicComment extends ActiveRecord
                 ['like', 'customer_member.points', $search]
             ]);
         }
-
+        $query->andWhere(['dynamic_id' => $params['dynamic_id']?$params['dynamic_id']:1]);
         // 2. 处理排序 (Bootstrap Table 默认传 sort 和 order)
         $sort = isset($params['sort']) ? $params['sort'] : 'id';
         $order = isset($params['order']) ? $params['order'] : 'DESC';
