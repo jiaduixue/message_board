@@ -57,7 +57,7 @@ $this->title = '留言系统';
                     </div>
                     <div class="mail-body text-center tooltip-demo">
                         <a href="javascript:void(0)" onclick="submitAddForm()" tppabs="" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i> 发送</a>
-                        <a class="J_menuItem"  data-index="0" id="messageListA" href="<?= Url::to(['message/index', 'id' => $id], true) ?>" tppabs="<?= Url::to(['message/index', 'id' => $id], true) ?>">收件箱</a>
+                        <!-- <a class="J_menuItem"  data-index="0" id="messageListA" href="<?= Url::to(['message/index', 'id' => $id], true) ?>" tppabs="<?= Url::to(['message/index', 'id' => $id], true) ?>">收件箱</a> -->
                             
                     </div>
                     <div class="clearfix"></div>

@@ -19,6 +19,7 @@ class SystemAsset extends AssetBundle
         'css/animate.min.css',
         'css/style.min.css-v=4.0.0.css',
         'css/plugins/iCheck/custom.css',
+        'css/plugins/sweetalert/sweetalert.css',
 
         'css/plugins/toastr/toastr.min.css'
     ];
@@ -48,7 +49,7 @@ class SystemAsset extends AssetBundle
         'js/plugins/toastr/toastr.min.js',
         'js/demo/sparkline-demo.min.js',
         'js/plugins/iCheck/icheck.min.js',
-
+        'js/plugins/sweetalert/sweetalert.min.js',
         'js/plugins/layer/layer.min.js',
         'js/content.min.js',
         'js/welcome.min.js',

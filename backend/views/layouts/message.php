@@ -180,16 +180,16 @@ MessageAsset::register($this);
           }
           function deleteCustomer(type){
             //var id = $.trim($("#edit_id").val());
-            var id =1;
-         
+            var id =1;var text = "删除";
+            if(type == 2) {text = "审核"}
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
               swal({
-                title:"您确定要删除这条信息吗",
-                text:"删除后将无法恢复，请谨慎操作！",
+                title:"您确定要"+text+"这条信息吗",
+                text:text + "后将无法恢复，请谨慎操作！",
                 type:"warning",
                 showCancelButton:true,
                 confirmButtonColor:"#DD6B55",
-                confirmButtonText:"是的，我要删除！",
+                confirmButtonText:"是的，我要！",
                 cancelButtonText:"让我再考虑一下…",
                 closeOnConfirm:false,
                 closeOnCancel:false
@@ -210,8 +210,9 @@ MessageAsset::register($this);
                               var res = res.data;
                                   
                             }
-                            swal("删除成功！","您已经永久删除了这条信息。","success")
-                            $('#customerIndex').bootstrapTable('refresh');
+                            swal("成功！","您已经成功操作了这条信息。","success")
+                            $('#detailCustomer').modal('hide');
+                            $('#messageIndex').bootstrapTable('refresh');
                           },
                           error: function() {
                             swal("已取消","服务器异常","error")
@@ -223,7 +224,7 @@ MessageAsset::register($this);
                     }
                   
                 }else{
-                  swal("已取消","您取消了删除操作！","error")
+                  swal("已取消","您取消了操作！","error")
                 }
               })
 

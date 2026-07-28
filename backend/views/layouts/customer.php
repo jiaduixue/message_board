@@ -110,9 +110,9 @@ CustomerAsset::register($this);
                   formatter: function (value, row, index) {
                       // 这里直接返回 HTML 字符串
                       return [
-                          '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="editCustomerModal(' + row.id + ')"><i class="fa fa-pencil"></i>编辑</a>',
-                          '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="deleteCustomer(' + row.id + ')"><i class="fa fa-times text-danger"></i>删除</a>',
-                          '<a class=" btn btn-white btn-sm" href="javascript:void(0)" onclick="customerDetail(' + row.id + ')"><i class="fa fa-folder"></i>详情</a>'
+                          '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="editCustomerModal(' + row.id + ')"><i class="fa fa-pencil"></i> 编辑 </a>',
+                          '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="deleteCustomer(' + row.id + ')"><i class="fa fa-times text-danger"></i> 删除 </a>',
+                          '<a class=" btn btn-white btn-sm" href="javascript:void(0)" onclick="customerDetail(' + row.id + ')"><i class="fa fa-folder"></i> 详情 </a>'
                       ].join(''); // join('') 用于把数组变成字符串
                   }
               }]
