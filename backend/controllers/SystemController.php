@@ -29,7 +29,7 @@ class SystemController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['receipt','print','blog','blogDetail','logout', 'file','customer','employee', 'employeeDetail' ,'project' ,'projectDetail','team'],
+                        'actions' => ['receipt','api','print','blog','blogDetail','logout', 'file','customer','employee', 'employeeDetail' ,'project' ,'projectDetail','team'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -67,7 +67,17 @@ class SystemController extends Controller
         $this->layout = 'system';
         return $this->render('file');
     }
-    
+     /**
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionApi()
+    {
+      
+        $this->layout = 'api';
+        return $this->render('api');
+    }
       /**
      * Displays homepage.
      *

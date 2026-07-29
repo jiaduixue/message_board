@@ -14,7 +14,7 @@ $this->title = '留言系统';
 
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h5>所有项目</h5>
+                        <h5>所有动态</h5>
                         <div class="ibox-tools">
                             <a href="javascript:void(0)" 
                             data-toggle="modal" data-target="#addDynamic"

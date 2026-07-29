@@ -66,7 +66,8 @@ $this->title = 'My Yii Application';
                             </li>
                             <li><a class="J_menuItem" href="<?= Url::to(['system/file', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/file', 'id' => $id], true) ?>">头像管理器</a>
                             </li>
-    
+                            <li><a class="J_menuItem" href="<?= Url::to(['system/api', 'id' => $id], true) ?>" tppabs="<?= Url::to(['system/api', 'id' => $id], true) ?>">api接口</a>
+                            </li>
                           
                         </ul>
                     </li>
