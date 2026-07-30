@@ -56,7 +56,7 @@ return [
             'password' => 'Yogazlt1@',
             'charset' => 'utf8mb4',
         ],
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => false,
@@ -66,7 +66,7 @@ return [
                 // 例如：'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
         ],
-        */
+        
         'assetManager' => [
             'appendTimestamp' => true, // 自动附加文件修改时间戳作为版本号
             // 或者完全禁用版本号

@@ -26,7 +26,10 @@ $this->title = '登录页面';
                     <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势四</li>
                     <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势五</li>
                 </ul>
-                <strong><?= \yii\helpers\Html::a('还没有账号？立即注册', ['site/register']) ?></strong>
+                <strong>
+                    找管理员去要账号
+                <!-- <?= \yii\helpers\Html::a('还没有账号？立即注册', ['site/register']) ?> -->
+                </strong>
             </div>
         </div>
         <div class="col-sm-5">
