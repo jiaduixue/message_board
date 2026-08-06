@@ -180,16 +180,13 @@ class ApiApp extends Model
         }
         // 2. 创建 User 模型实例并赋值
         $member = $this->getById($id);
-       
-        $member->customer_id = $this->customer_id;
-        
-        $member->level_code = $this->level_code;
-        // $customer->attributes = $this;
-        $member->points = $this->points;
-        $member->join_date = $this->join_date;
-        $member->expire_date = $this->expire_date;
-        
-        $member->status = $this->status;
+        $member->module_name = $this->module_name;
+        $member->path = $this->path;
+        $member->method = $this->method;
+        $member->name = $this->name;
+        $member->description = $this->description;
+        $member->request_content_type = $this->request_content_type;
+        $member->response_example = $this->response_example;
        
         // 5. 将数据保存到数据库
         if ($member->save()) {

@@ -131,6 +131,7 @@ SystemAsset::register($this);
                   formatter: function (value, row, index) {
                       // 这里直接返回 HTML 字符串
                       return [
+                        '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="customerEdit(' + row.id + ')"><i class="fa fa-pencil text-warning"></i> 修改 </a>',
                           '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="deleteCustomer(' + row.id + ')"><i class="fa fa-times text-danger"></i> 删除 </a>',
                           '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="addApiParameter(' + row.id + ')"><i class="fa fa-plus text-warning"></i> 属性 </a>',
                           '<a class=" btn btn-white btn-sm" href="javascript:void(0)" onclick="customerDetail(' + row.id + ')"><i class="fa fa-folder text-success"></i> 详情 </a>'
@@ -152,6 +153,57 @@ SystemAsset::register($this);
             $('#dynamicLikeIndex').bootstrapTable('destroy');
             $('#detailDynamic').modal('hide');
           }
+          function customerEdit(id){
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+              // 假设你的表格 ID 是 #myTable
+              // 或者如果没设 uniqueId，可以用 getData()[index]，但上面的方法更稳
+              if(id) {
+                $.ajax({
+                    url: "<?= Url::to(['api/get-api-by-id', 'id' => $id], true) ?>" , // 你的后端接口地址
+                    type: 'POST',
+                    data:  {id:  id},
+                    headers: {
+                        'X-CSRF-Token': csrfToken
+                    },
+                    success: function(res) {
+                      if(res.status == 200){
+                        var res = res.data;
+                        var status_text = res.status == 1 ? '进行中' : '已删除';
+                   
+                        var  like_count = res.like_count <= 100 ? res.like_count : 100;
+                       // 将数据填入 input
+                        $('#edit_id').val(res.id);
+                        $('#form_module_name_e').val(res.module_name);
+                        $('#form_path_e').val(res.path);
+                        $('#form_method_e').val(res.method);
+                        $('#form_name_e').val(res.name);
+                        $('#form_request_content_type_e').val(res.request_content_type);
+
+                        $('#form_description_e').val(res.description);
+                        $('#form_response_example_e').val(res.response_example);
+                      
+                      
+                        
+                        // 【核心】修改发送给后端的参数名，以匹配你的 PHP 逻辑
+                        
+
+                          // 使用 jQuery 显示模态框
+                        $('#editApiModal').modal('show');
+                      }
+                      toastr.info("修改页面","信息加载成功!")
+                        
+                    },
+                    error: function() {
+                      toastr.error("页面","信息加载失败!")
+                    }
+                });
+                
+              }else{
+                toastr.error("加载页面","id失败!")
+              }
+          }
+
+
           function customerDetail(id){
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
               // 假设你的表格 ID 是 #myTable
@@ -464,6 +516,51 @@ SystemAsset::register($this);
               });
           }
     
+          // 2. 提交表单
+          function submitEditForm() {
+              var csrfToken = $('meta[name="csrf-token"]').attr('content');
+              // 获取表单数据
+              var formData = $('#editApiForm').serialize(); // 自动序列化成 username=xxx&password=xxx
+              // 使用 URLSearchParams 解析
+              var params = new URLSearchParams(formData);
+              var module_nameVal = params.get('module_name');
+              var pathVal = params.get('path');
+              var methodVal = params.get('method');
+              var nameVal = params.get('name');
+              var descriptionVal = params.get('description');
+              var request_content_typeVal = params.get('request_content_type');
+              var response_exampleVal = params.get('response_example');
+              $.ajax({
+              url: "<?= Url::to(['api/edit', 'id' => $id], true) ?>" , // 你的后端接口地址
+              type: 'POST',
+              data:  {Api:  {  // 注意这里加上模型类名
+                  module_name: module_nameVal,
+                  path: pathVal,
+                  method: methodVal,
+                  name: nameVal,
+                  description: descriptionVal,
+                  request_content_type: request_content_typeVal,
+                  response_example: response_exampleVal,
+                },id:$("#edit_id").val()},
+              headers: {
+                  'X-CSRF-Token': csrfToken
+              },
+              success: function(res) {
+                 if(res.status == 200){
+                    // 关闭模态框
+                    $('#editApiModal').modal('hide');
+                    // 刷新表格
+                    $('#customerIndex').bootstrapTable('refresh');
+                     
+                 }
+                 toastr.success("修改页面","api修改成功!")
+                  
+              },
+              error: function() {
+                toastr.error("修改页面","api修改失败!")
+              }
+              });
+          }
 
           // 2. 提交表单
           function submitAddParameterForm() {

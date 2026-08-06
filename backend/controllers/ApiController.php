@@ -33,7 +33,7 @@ class ApiController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout','add','add-parameter', 'delete', 'delete-parameter','get-api-by-id',
+                        'actions' => ['logout','add','edit' ,'add-parameter', 'delete', 'delete-parameter','get-api-by-id',
                          'index','get-list','get-parameter-list','get-collect-list','get-comment-list'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -97,7 +97,53 @@ class ApiController extends Controller
                 'message' => '数据获取成功',
             ];
     }
-     
+     /**
+     * add user
+     *
+     * @return string
+     */
+    public function actionEdit()
+    {
+        
+        $model = new ApiApp();
+
+        $post = Yii::$app->request->post();
+        $id = $post['id'];
+        Yii::$app->response->format = Response::FORMAT_JSON;
+       
+        // 如果表单被提交且注册成功
+        if ($model->load($post,'Api')) {
+            $return = $model->edit($id);
+            $return = json_decode($return);
+            if($return->status != 'error'){
+                return [
+                
+                    'status' => 200,
+                    'message' => '数据添加成功',
+                    'error' => $return->data
+                ];
+            }else{
+                return [
+                    'status' => 500,
+                    'message' => '数据添加失败',
+                    'error' => $return->data
+                ];
+            }
+           
+        
+        }else{
+            $errors = $model->errors;
+           
+            return [
+                'status' => 500,
+                'message' => '数据添加失败',
+                'error' => $model,
+                's'=>$post
+            ];
+        }
+
+
+    }
     /**
      * add user
      *

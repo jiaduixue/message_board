@@ -128,6 +128,69 @@ $this->title = '留言系统';
                         </div>
 
 
+
+                        <div class="modal inmodal fade" id="editApiModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">修改api接口</h4>
+                                           
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                            <form role="form" id="editApiForm" class="form-horizontal">
+                                                <input type="hidden" name="id" id="edit_id">
+
+                                                <div class="form-group">
+                                                    <label>所属模块/分组 (例如: User, Order)：</label>
+                                                    <input type="text"  name="module_name" id="form_module_name_e" placeholder="所属模块/分组 (例如: User, Order)" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>接口路径 (例如: /api/v1/user/login)：</label>
+                                                    <input type="text"  name="path" id="form_path_e" placeholder="接口路径 (例如: /api/v1/user/login)" class="form-control">
+                                                </div>
+                                               
+
+                                                <div class="form-group">
+                                                    <label>请求方式（'GET','POST','PUT','DELETE','PATCH'）：</label>
+                                                    <select class="form-control m-b"  name="method" id="form_method_e">
+                                                        <option value="GET" checked>GET</option>
+                                                        <option value="POST" >POST</option>
+                                                        <option value="PUT" >PUT</option>
+                                                        <option value="DELETE" >DELETE</option>
+                                                        <option value="PATCH" >PATCH</option>
+                                                    </select>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>接口名称/标题 (例如: 用户登录)：</label>
+                                                    <input type="text"  name="name" id="form_name_e" placeholder="接口名称/标题 (例如: 用户登录)" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>接口详细描述文档：</label>
+                                                    <input type="text"  name="description" id="form_description_e" placeholder="接口详细描述文档" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>请求头Content-Type：默认（application/json）</label>
+                                                    <input type="text"  name="request_content_type" id="form_request_content_type_e" placeholder="请求头Content-Type" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>成功响应示例 (JSON格式)：</label>
+                                                    <input type="text"  name="response_example" id="form_response_example_e" placeholder="成功响应示例 (JSON格式)" class="form-control">
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-primary" onClick="submitEditForm()">保存</button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+
+
                         <div class="modal inmodal fade" id="addApiParameterModal" tabindex="-1" role="dialog"  aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
