@@ -97,6 +97,24 @@ class DynamicApp extends Model
             ]);
         }
     }
+    public function apply($id)
+    {
+        // 2. 创建 User 模型实例并赋值
+        $member = $this->getById($id);
+        $member->status = Dynamic::STATUS_ACTIVE;
+        // 5. 将数据保存到数据库
+        if ($member->save()) {
+            return json_encode([
+                'status' => 'success',
+                'data' => $member,
+            ]);
+        }else{
+            return json_encode([
+                'status' => 'error',
+                'data' => 'id重复',
+            ]);
+        }
+    }
     public function edit($id)
     {
         

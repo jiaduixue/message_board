@@ -132,9 +132,11 @@ SystemAsset::register($this);
                 
                       if(value == 1){
                         return '动态状态：<span class="label label-primary">进行中</span>'
+                      }else if(value == 2){
+                        return '动态状态：<span class="label label-warning">已发布 </span>'
+
                       }else{
                         return '动态状态：<span class="label label-danger">已删除 </span>'
-
                       }
                      
                   }
@@ -146,7 +148,8 @@ SystemAsset::register($this);
                       // 这里直接返回 HTML 字符串
                       return [
                           '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="deleteCustomer(' + row.id + ')"><i class="fa fa-times text-danger"></i> 删除 </a>',
-                          '<a class=" btn btn-white btn-sm" href="javascript:void(0)" onclick="customerDetail(' + row.id + ')"><i class="fa fa-folder"></i> 详情 </a>'
+                          '<a class=" btn btn-white btn-sm" style="margin-right:5px" href="javascript:void(0)" onclick="customerDetail(' + row.id + ')"><i class="fa fa-folder"></i> 详情 </a>',
+                          '<a class=" btn btn-white btn-sm" href="javascript:void(0)" onclick="customerApply(' + row.id + ')"><i class="fa fa-folder text-warning"></i> 审核 </a>'
                       ].join(''); // join('') 用于把数组变成字符串
                   }
               }]
@@ -408,7 +411,50 @@ SystemAsset::register($this);
              }
 
           }
-
+          function customerApply(id){
+              var csrfToken = $('meta[name="csrf-token"]').attr('content');
+                swal({
+                  title:"您确定要审核这条动态吗",
+                  text:"审核后将无法恢复，请谨慎操作！",
+                  type:"warning",
+                  showCancelButton:true,
+                  confirmButtonColor:"#DD6B55",
+                  confirmButtonText:"是的，我要审核！",
+                  cancelButtonText:"让我再考虑一下…",
+                  closeOnConfirm:false,
+                  closeOnCancel:false
+                },function(isConfirm){
+                  if(isConfirm){
+                    if(id) {
+                        $.ajax({
+                            url: "<?= Url::to(['dynamic/apply', 'id' => $id], true) ?>" , // 你的后端接口地址
+                            type: 'POST',
+                            data:  {id:  id},
+                            headers: {
+                                'X-CSRF-Token': csrfToken
+                            },
+                            success: function(res) {
+                              if(res.status == 200){
+                                var res = res.data;
+                                    
+                              }
+                              swal("审核成功！","您已经永久审核了这条动态。","success")
+                              $('#customerIndex').bootstrapTable('refresh');
+                            },
+                            error: function() {
+                              swal("已取消","服务器异常","error")
+                            }
+                        });
+                        
+                      }else{
+                        swal("已取消","id缺失！","error")
+                      }
+                    
+                  }else{
+                    swal("已取消","您取消了删除操作！","error")
+                  }
+                })
+          }
           function deleteCustomer(id){
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
               swal({

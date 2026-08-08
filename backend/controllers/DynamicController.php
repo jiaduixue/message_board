@@ -35,7 +35,7 @@ class DynamicController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout','add', 'delete','get-dynamic-by-id',
+                        'actions' => ['logout','add', 'apply',  'delete','get-dynamic-by-id',
                          'index','get-list','get-like-list','get-collect-list','get-comment-list'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -263,7 +263,46 @@ class DynamicController extends Controller
 
 
     }
+/**
+     * add user
+     *
+     * @return string
+     */
+    public function actionApply()
+    {
+        $model = new DynamicApp();
+        $post = Yii::$app->request->post();
+        $id = $post['id'];
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if($id !== null){
+            // 如果表单被提交且注册成功
+            $return = $model->apply($id);
+            $return = json_decode($return);
+                if($return->status != 'error'){
+                    return [
+                    
+                        'status' => 200,
+                        'message' => '数据修改成功',
+                        'error' => $return
+                    ];
+                }else{
+                    return [
+                        'status' => 500,
+                        'message' => '数据修改失败',
+                        'error' => $return
+                    ];
+                }
+        }else {
+            return [
+                'status' => 500,
+                'message' => '确少用户id',
+                's'=>$post
+            ];
+        }
+        
 
+
+    }
     
 
       /**

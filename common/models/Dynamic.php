@@ -10,7 +10,8 @@ use yii\db\Expression;
 class Dynamic extends ActiveRecord
 {
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 1;
+    const STATUS_ACTIVE = 2;
+    const STATUS_WAIT = 1;
 
     const TYPE_TEXT = 1;
     const TYPE_IMG = 2;

@@ -351,7 +351,7 @@ $this->title = '留言系统';
                                                                     <div class="panel-options">
                                                                         <ul class="nav nav-tabs">
                                                                           
-                                                                            <li class=""><a href="project_detail.html#tab-2" tppabs="http://www.zi-han.net/theme/hplus/project_detail.html#tab-2" data-toggle="tab"><i class="fa fa-thumbs-up"></i> 赞 </a>
+                                                                            <li class=""><a href="project_detail.html#tab-2" tppabs="http://www.zi-han.net/theme/hplus/project_detail.html#tab-2" data-toggle="tab"><i class="fa fa-thumbs-up"></i> 属性列表 </a>
                                                                             </li>
                                                                          
                                                                         </ul>

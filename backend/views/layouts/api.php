@@ -107,7 +107,7 @@ SystemAsset::register($this);
                   title: '密码',
                   formatter: function(value, row, index) {
 
-                    return ' <small>请求头Content-Type： '+value+'%</small>  </div>'
+                    return ' <small>请求头Content-Type： '+value+'</small>  </div>'
                      
                   }
               }, {
